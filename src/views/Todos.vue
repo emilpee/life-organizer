@@ -7,11 +7,11 @@
       </header>
 
       <section class="content">
-        <todo v-for="(todo, index) in todos" :key="index" :todo="todo" />
+        <todo v-for="(todo, index) in todos" :key="index" :index="index" :todo="todo" />
       </section>
 
-      <footer>
-        <a href="#" class="btn">Slide to add new task</a>
+      <footer v-touch:swipe.left="swipe">
+        <a href="#" class="btn">Swipe to add new task</a>
       </footer>
     </main>
   </div>
@@ -24,6 +24,11 @@ import Todo from '@/components/Todo.vue'
 export default {
   name: 'home',
   props: ['todos'],
+  methods: {
+    swipe(e) {
+      this.$emit('swipe', 1)
+    },
+  },
   components: {
     Todo
   }
@@ -41,6 +46,7 @@ export default {
     .todolist {
       max-width: 600px;
       width: 100vw;
+      height: 100vh;
     }
 
     header {

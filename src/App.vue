@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="slider">
-      <todos :todos="todos" />
-      <newtodo />
+    <div class="slider" :class="'slide-' + activeSlide">
+      <todos :todos="todos" @swipe="handleSwipe" />
+      <newtodo @swipe="handleSwipe" @newtodo="newTodo" />
     </div>
   </div>
 </template>
@@ -18,8 +18,18 @@ export default {
       todos: [
         { done: false, text: 'Köp tomatketchup'},
         { done: false, text: 'Skaffa ett digitalt liv'},
-        { done: true, text: 'Sluta röka på Kruthusgatan' }
-      ]
+        { done: false, text: 'Sluta röka på Kruthusgatan' }
+      ],
+      activeSlide: 0
+    }
+  },
+  methods: {
+    handleSwipe(e) {
+      this.activeSlide = e;
+      console.log(e);
+    },
+    newTodo(todo) {
+      this.todos.push(todo);
     }
   },
   components: {
@@ -35,6 +45,16 @@ export default {
   width: 200vw;
   display: flex;
   height: inherit;
+  overflow: hidden;
+  transition: transform .2s ease;
+
+  &.slide-0 {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.slide-1 {
+    transform: translate3d(-100vw, 0, 0);
+  }
 
   div {
     flex: 1;

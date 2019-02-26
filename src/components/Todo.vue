@@ -1,5 +1,5 @@
 <template>
-  <article class="todo" :class="{ doneTask: todo.done }">
+  <article class="todo" :class="{ doneTask: todo.done }" v-touch:swipe.right="completed">
     <aside class="done" v-if="todo.done">
       <img src="../assets/check.svg" alt="Check!" />
     </aside>
@@ -12,7 +12,12 @@
 <script>
 export default {
     name: 'todo',
-    props: ['todo']
+    props: ['todo', 'index'],
+    methods: {
+        completed() {
+            this.$parent.$parent.todos[this.index].done = !this.$parent.$parent.todos[this.index].done
+        }    
+    }
 }
 </script>
 
@@ -21,7 +26,7 @@ export default {
 
 .todo {
     background: #999;
-    padding: 1rem;
+    padding: .75rem;
     color: white;
     flex-direction: row;
     display: flex;
@@ -49,8 +54,9 @@ export default {
     }
 
     .text {
+        border-radius: 9999em;
         flex: 1;
-        padding: 0 1rem 0 0;
+        padding: .5rem;
     }
 }
 
