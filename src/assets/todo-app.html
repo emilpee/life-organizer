@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:8080/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="http://localhost:8080/favicon.ico">
+    <title>todo-app</title>
+  <link href="./todo-app_files/app.js" rel="preload" as="script"><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);</style><style type="text/css">.todo aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  height: 100vh;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #222;
+  background: #eee;
+}
+#app .btn {
+    color: white;
+    text-decoration: none;
+}
+.todo {
+  background: #999;
+  padding: 1rem;
+  color: white;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.todo aside {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999rem;
+    padding: .5rem;
+    background: #46ec46;
+}
+.todo .text {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding: 0 1rem 0 0;
+}
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);</style><style type="text/css">body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  height: 100vh;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #222;
+  background: #eee;
+}
+#app .btn {
+    color: white;
+    text-decoration: none;
+}
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.home .todolist {
+    max-width: 600px;
+    width: 100vw;
+}
+.home header {
+    background: #83ecff;
+    padding: 1rem;
+}
+.home header h1 {
+      font-size: 2.5rem;
+}
+.home header h1, .home header h3 {
+      margin: 0;
+      padding: .5rem;
+}
+.home footer {
+    background: #333;
+    padding: 1.5rem;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.home footer:hover {
+      background: #fca6d1;
+}
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);</style><style type="text/css">.input, .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  height: 100vh;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #222;
+  background: #eee;
+}
+#app .btn {
+    color: white;
+    text-decoration: none;
+}
+#newtodo {
+  background: #fca6d1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#newtodo .addnew {
+    max-width: 600px;
+    width: 100vw;
+}
+.input {
+  height: 20vh;
+}
+.input input[type="text"] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    margin: .5rem;
+    width: 25vw;
+    padding: .5rem;
+}
+.footer {
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 3px;
+}
+.footer:hover {
+    background: #35ca35;
+}
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);</style><style type="text/css">body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  height: 100vh;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #222;
+  background: #eee;
+}
+#app .btn {
+    color: white;
+    text-decoration: none;
+}
+.slider {
+  width: 200vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: inherit;
+}
+.slider div {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+</style><script charset="utf-8" src="./todo-app_files/app.b8951589d594f9eec433.hot-update.js"></script></head>
+  <body>
+    <noscript>
+      <strong>We're sorry but todo-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"><div class="slider"><div class="home"><main class="todolist"><header><h1>Stuff To Do</h1><h3>You lazy bastard</h3></header><section class="content"><article class="todo"><aside class="done"><img src="./todo-app_files/check.3ac4881e.svg" alt="Check!"></aside><section class="text">
+      Renovera Kruthusgatan 17
+  </section></article></section><footer><a href="http://localhost:8080/#" class="btn">Slide to add new task!</a></footer></main></div><div id="newtodo"><div class="addnew"><header><h1>Add new task</h1><h3>(If you have nothing else to do)</h3></header><section class="input"><input type="text"></section><section class="footer"><a href="http://localhost:8080/#" class="btn">Add new task</a></section></div></div></div></div>
+    <!-- built files will be auto injected -->
+  <script type="text/javascript" src="./todo-app_files/app.js"></script>
+
+</body></html>

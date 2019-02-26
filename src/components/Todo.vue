@@ -1,6 +1,6 @@
 <template>
-  <article class="todo">
-    <aside class="done">
+  <article class="todo" :class="{ doneTask: todo.done }">
+    <aside class="done" v-if="todo.done">
       <img src="../assets/check.svg" alt="Check!" />
     </aside>
     <section class="text">
@@ -12,14 +12,7 @@
 <script>
 export default {
     name: 'todo',
-    data() {
-        return {
-            todo: {
-                text: 'Renovera Kruthusgatan 17',
-                done: false
-            } 
-        }
-    }
+    props: ['todo']
 }
 </script>
 
@@ -31,15 +24,28 @@ export default {
     padding: 1rem;
     color: white;
     flex-direction: row;
-    @extend %center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.doneTask {
+        .text {
+            color: rgba(0, 0, 0, .3);
+            text-decoration: line-through;
+        }
+    }
 
     aside {
-        height: 2rem;
-        width: 2rem;
+        height: 1rem;
+        width: 1rem;
         border-radius: 9999rem;
         padding: .5rem;
         background: rgb(70, 236, 70);
         @extend %center;
+
+        & img {
+            width: 1.25rem;
+        }
     }
 
     .text {

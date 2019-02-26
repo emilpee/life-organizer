@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="slider">
-      <todos />
+      <todos :todos="todos" />
       <newtodo />
     </div>
   </div>
@@ -13,6 +13,15 @@ import newtodo from './views/NewTodo.vue'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      todos: [
+        { done: false, text: 'Köp tomatketchup'},
+        { done: false, text: 'Skaffa ett digitalt liv'},
+        { done: true, text: 'Sluta röka på Kruthusgatan' }
+      ]
+    }
+  },
   components: {
     todos, newtodo
   }

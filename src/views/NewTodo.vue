@@ -1,17 +1,20 @@
 <template>
   <div id="newtodo">
     <div class="addnew">
+
       <header>
         <h1>Add new task</h1>
         <h3>(If you have nothing else to do)</h3>
       </header>
+
       <section class="input">
-        <input type="text" v-model="newTodo">
+        <input type="text" />
       </section>
 
-      <section class="footer">
+      <section href="#" class="footer">
         <a href="#" class="btn">Add new task</a>
       </section>
+      
     </div>
   </div>
 </template>
@@ -43,9 +46,12 @@ export default {
 
     input[type="text"] {
         appearance: none;
+        background: none;
         margin: .5rem;
         width: 25vw;
         padding: .5rem;
+        color: white;
+        font-size: 1.4em;
     }
 }
 
@@ -56,7 +62,8 @@ export default {
     border-radius: 3px;
 
     &:hover {
-        background: rgb(53, 202, 53);
+        background: rgb(100, 236, 100);
+        cursor: pointer;
     }
 }
 

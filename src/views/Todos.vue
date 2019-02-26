@@ -2,16 +2,16 @@
   <div class="home">
     <main class="todolist">
       <header>
-          <h1>Stuff To Do</h1>
-          <h3>You lazy bastard</h3>
+          <h1>Life Organizer</h1>
+          <h3>Task provider since 2019</h3>
       </header>
 
       <section class="content">
-        <Todo />
+        <todo v-for="(todo, index) in todos" :key="index" :todo="todo" />
       </section>
 
       <footer>
-        <a href="#" class="btn">Slide to add new task!</a>
+        <a href="#" class="btn">Slide to add new task</a>
       </footer>
     </main>
   </div>
@@ -23,6 +23,7 @@ import Todo from '@/components/Todo.vue'
 
 export default {
   name: 'home',
+  props: ['todos'],
   components: {
     Todo
   }
@@ -65,6 +66,7 @@ export default {
 
         &:hover {
           background: rgb(252, 166, 209);
+          cursor: pointer;
         }
       }
 
