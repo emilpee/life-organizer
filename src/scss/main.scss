@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
 
-:root {
-    background: #eee;
+%center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 #app {
@@ -11,4 +18,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #222;
+    background: #eee;
+
+    .btn {
+        color: white;
+        text-decoration: none;
+    }
   }
