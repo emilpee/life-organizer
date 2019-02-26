@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
+
+:root {
+    background: #eee;
+}
+
+#app {
+    height: 100vh;
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #222;
+  }
