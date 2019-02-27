@@ -7,14 +7,13 @@
       </header>
       
       <section class="input">
+        <p> {{ newTodo.length }} / 30 </p>
         <input type="text" v-model="newTodo" maxlength="30">
       </section>
 
-      <p> {{ newTodo.length }} / 30 </p>
-
-      <section href="#" class="footer">
+      <footer>
         <a href="#" class="btn" @click="addTask">Add new task</a>
-      </section>
+      </footer>
     </div>
   </div>
 </template>
@@ -33,7 +32,7 @@ export default {
                 done: false,
                 text: this.newTodo
             }
-            this.$emit('newtodo', task);
+            this.$store.commit('newTodo', task);
             this.newTodo = '';
             this.$emit('swipe', 0);
         }
@@ -48,40 +47,46 @@ export default {
     background: rgb(252, 166, 209);
     display: flex;
     justify-content: center;
+    height: 100vh;
+
+    header {
+      flex: 3;
+      @extend %center;
+      flex-direction: column;
+    }
 
     .addnew {
       max-width: 600px;
+      margin: auto;
+      flex-direction: column;
       width: 100vw;
+      height: inherit;
+      display: flex;
     }
 
   .input {
-    height: 20vh;
     @extend %center;
+    flex-direction: column;
+    flex: 8;
 
     input[type="text"] {
         appearance: none;
         background: none;
         margin: .5rem;
         width: 35vw;
-        padding: .5rem;
         color: white;
         text-align: center;
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 }
 
-.footer {
+  footer {
     background: #222;
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex: 1;
+    @extend %center;
     border-radius: 3px;
-
-    &:hover {
-        background: rgb(100, 236, 100);
-        cursor: pointer;
-    }
   }
 
   @media screen and (max-width: 480px) {

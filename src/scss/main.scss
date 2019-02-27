@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    padding: 0;
+    height: 100vh;
 }
 
 #app {
@@ -17,13 +17,54 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #222;
-    background: #eee;
+    height: inherit;
     overflow: hidden;
 
     .btn {
         color: white;
         text-decoration: none;
-        @extend %center;
         text-transform: uppercase;
     }
-  }
+
+    .home {
+        display: flex;
+        height: 100vh;
+        background: rgb(131, 236, 255);
+
+        .todolist {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: inherit;
+            margin: auto;
+            max-width: 800px;
+
+        header {
+            flex: 3;
+            @extend %center;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 7;
+            background: inherit;
+            overflow: auto;
+        }
+
+        footer {
+            flex: 1;
+            @extend %center;
+            border-radius: 999rem;
+            flex-direction: column;
+            margin: .5rem;
+            
+
+            a.btn {
+                @extend %center;
+                color: white;
+                font-weight: 700;
+            }
+        }
+    }
+    }
+}

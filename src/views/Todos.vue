@@ -6,6 +6,7 @@
           <h3>Task provider since 2019</h3>
       </header>
 
+      <span>Swipe right to complete a task</span>
       <section class="content">
         <todo v-for="(todo, index) in todos" :key="index" :index="index" :todo="todo" />
       </section>
@@ -23,7 +24,11 @@ import Todo from '@/components/Todo.vue'
 
 export default {
   name: 'home',
-  props: ['todos'],
+  computed: {
+    todos() {
+      return this.$store.state.todos
+    }
+  },
   methods: {
     swipe(e) {
       this.$emit('swipe', 1)
@@ -38,20 +43,12 @@ export default {
 <style lang="scss">
 @import '../scss/main.scss';
 
-  .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.home {
 
-    .todolist {
-      max-width: 600px;
-      width: 100vw;
-      height: 100vh;
-    }
+  .todolist {
 
     header {
-      background: rgb(131, 236, 255);
-      padding: 1rem;
+      padding: 1.5rem;
 
       h1 {
         font-size: 2.5rem;
@@ -64,17 +61,15 @@ export default {
 
     }
 
-      footer {
-        background: #333;
-        padding: 1.5rem;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
+    footer {
+      background: rgb(252, 166, 209);
 
-        &:hover {
-          background: rgb(252, 166, 209);
-          cursor: pointer;
-        }
+      &:active {
+        background: rgb(221, 108, 164);
       }
-
+      
+    }
   }
+}
+
 </style>

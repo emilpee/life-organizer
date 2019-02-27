@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="slider" :class="'slide-' + activeSlide">
-      <todos :todos="todos" @swipe="handleSwipe" />
-      <newtodo @swipe="handleSwipe" @newtodo="newTodo" />
+      <todos @swipe="handleSwipe" />
+      <newtodo @swipe="handleSwipe" />
     </div>
   </div>
 </template>
@@ -15,22 +15,18 @@ export default {
   name: 'app',
   data() {
     return {
-      todos: [
-        { done: false, text: 'Köp tomatketchup'},
-        { done: false, text: 'Skaffa ett digitalt liv'},
-        { done: false, text: 'Sluta röka på Kruthusgatan' }
-      ],
-      activeSlide: 0
+        activeSlide: 0
+    }
+  },
+  computed: {
+    todos() {
+      return this.$store.state.todos
     }
   },
   methods: {
     handleSwipe(e) {
       this.activeSlide = e;
-      console.log(e);
     },
-    newTodo(todo) {
-      this.todos.push(todo);
-    }
   },
   components: {
     todos, newtodo

@@ -1,11 +1,13 @@
 <template>
   <article class="todo" :class="{ doneTask: todo.done }" v-touch:swipe.right="completed">
+    <div class="todoItem">
     <aside class="done" v-if="todo.done">
-      <img src="../assets/check.svg" alt="Check!" />
+        <img src="../assets/check.svg" alt="Check!" />
     </aside>
     <section class="text">
         {{ todo.text }}
     </section>
+    </div>
   </article>
 </template>
 
@@ -15,7 +17,7 @@ export default {
     props: ['todo', 'index'],
     methods: {
         completed() {
-            this.$parent.$parent.todos[this.index].done = !this.$parent.$parent.todos[this.index].done
+          this.$store.commit('updateTodo', this.index)
         }    
     }
 }
@@ -25,18 +27,24 @@ export default {
 @import '../scss/main.scss';
 
 .todo {
-    background: #999;
+    background: rgb(131, 236, 255);
     padding: .75rem;
+       display: flex;
     color: white;
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    .todoItem {
+        background: #222;
+        border-radius: 9999em;
+        display: flex;
+        align-items: center;
+        padding: .5rem;
+    }
 
     &.doneTask {
         .text {
-            color: rgba(0, 0, 0, .3);
+            color: rgba(196, 196, 196, 0.2);
             text-decoration: line-through;
+            font-style: italic;
         }
     }
 
@@ -46,7 +54,9 @@ export default {
         border-radius: 9999rem;
         padding: .5rem;
         background: rgb(70, 236, 70);
-        @extend %center;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
 
         & img {
             width: 1.25rem;
@@ -54,9 +64,9 @@ export default {
     }
 
     .text {
-        border-radius: 9999em;
         flex: 1;
         padding: .5rem;
+        @extend %center;
     }
 }
 
