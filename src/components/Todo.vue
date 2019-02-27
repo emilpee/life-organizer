@@ -56,7 +56,7 @@ export default {
         background: rgb(70, 236, 70);
         display: flex;
         align-items: flex-start;
-        justify-content: flex-start;
+        justify-content: center;
 
         & img {
             width: 1.25rem;

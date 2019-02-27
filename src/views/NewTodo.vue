@@ -11,8 +11,8 @@
         <input type="text" v-model="newTodo" maxlength="30">
       </section>
 
-      <footer>
-        <a href="#" class="btn" @click="addTask">Add new task</a>
+      <footer @click="addTask">
+        <a href="#" class="btn">Add new task</a>
       </footer>
     </div>
   </div>
@@ -82,11 +82,13 @@ export default {
 
   footer {
     background: #222;
-    padding: 1rem;
     display: flex;
     flex: 1;
     @extend %center;
-    border-radius: 3px;
+    border-radius: 999rem;
+    flex-direction: column;
+    margin: .5rem;
+    font-weight: 700;
   }
 
   @media screen and (max-width: 480px) {
