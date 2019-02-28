@@ -13,14 +13,9 @@ import newtodo from './views/NewTodo.vue'
 
 export default {
   name: 'app',
-  data() {
-    return {
-        activeSlide: 0
-    }
-  },
   computed: {
-    todos() {
-      return this.$store.state.todos
+    activeSlide() {
+      return this.$store.state.activeSlide;
     }
   },
   methods: {

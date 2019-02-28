@@ -10,16 +10,34 @@ export default new Vuex.Store({
         { done: false, text: 'Skaffa ett digitalt liv'},
         { done: false, text: 'Sluta röka på Kruthusgatan' }
       ],
+      activeSlide: 0
   },
   mutations: {
-    newTodo(state, todo) {
-      state.todos.push(todo);
+    swipe(state, current) {
+      state.activeSlide = current;
     },
     updateTodo(state, index) {
       state.todos[index].done = !state.todos[index].done
+    },
+    addTodo(state, todo) {
+      state.todos.push(todo)
     }
   },
   actions: {
+    newTodo(ctx, todo) {
+      if (todo.text != '') {
+        ctx.commit('addTodo', todo)
 
+        // Improvement - sync with mongodb?
+      }
+    },
+  },
+  getters: {
+    todos(state) {
+      return state.todos;
+    },
+    doneTodos(state) {
+      return state.todos.filter(todo => todo.done)
+    }
   }
 })

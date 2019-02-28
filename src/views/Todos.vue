@@ -26,12 +26,12 @@ export default {
   name: 'home',
   computed: {
     todos() {
-      return this.$store.state.todos
+      return this.$store.getters.todos
     }
   },
   methods: {
-    swipe(e) {
-      this.$emit('swipe', 1)
+    swipe() {
+      this.$store.commit('swipe', 1)
     },
   },
   components: {

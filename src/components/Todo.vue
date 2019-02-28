@@ -1,5 +1,5 @@
 <template>
-  <article class="todo" :class="{ doneTask: todo.done }" v-touch:swipe.right="completed">
+  <article class="todo" :class="{ doneTask: todo.done }" v-touch:swipe="completed">
     <div class="todoItem">
     <aside class="done" v-if="todo.done">
         <img src="../assets/check.svg" alt="Check!" />
@@ -41,6 +41,7 @@ export default {
     }
 
     &.doneTask {
+    
         .text {
             color: rgba(196, 196, 196, 0.2);
             text-decoration: line-through;

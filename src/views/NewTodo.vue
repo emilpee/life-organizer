@@ -11,7 +11,7 @@
         <input type="text" v-model="newTodo" maxlength="30">
       </section>
 
-      <footer @click="addTask">
+      <footer @click="addTodo">
         <a href="#" class="btn">Add new task</a>
       </footer>
     </div>
@@ -27,14 +27,14 @@ export default {
         }
     },
     methods: {
-        addTask() {
+        addTodo() {
             let task = {
                 done: false,
                 text: this.newTodo
             }
-            this.$store.commit('newTodo', task);
+            this.$store.dispatch('newTodo', task);
             this.newTodo = '';
-            this.$emit('swipe', 0);
+            this.$store.commit('swipe', 0);
         }
     }
 }
