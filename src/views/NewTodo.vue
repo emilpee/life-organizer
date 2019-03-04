@@ -27,14 +27,15 @@ export default {
         }
     },
     methods: {
-        addTodo() {
-            let task = {
-                done: false,
-                text: this.newTodo
-            }
-            this.$store.dispatch('newTodo', task);
-            this.newTodo = '';
-            this.$store.commit('swipe', 0);
+        async addTodo() {
+          let task = {
+              done: false,
+              text: this.newTodo
+          }
+          this.$store.dispatch('newTodo', task)
+          this.$store.dispatch('getTodolist')
+          this.newTodo = '';
+          this.$store.commit('swipe', 0);
         }
     }
 }

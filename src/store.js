@@ -1,15 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-      todos: [
-        { done: false, text: 'Köp tomatketchup'},
-        { done: false, text: 'Skaffa ett digitalt liv'},
-        { done: false, text: 'Sluta röka på Kruthusgatan' }
-      ],
+      todos: [],
       activeSlide: 0
   },
   mutations: {
@@ -21,21 +18,26 @@ export default new Vuex.Store({
     },
     addTodo(state, todo) {
       state.todos.push(todo)
+    },
+    getTodos(state, todos) {
+      state.todos = todos
     }
   },
   actions: {
-    newTodo(ctx, todo) {
+    async getTodolist(data) {
+      let todos = await axios.get('http://localhost:3000/todos')
+      data.commit('getTodos', todos.data)
+    },
+    async newTodo(ctx, todo) {
       if (todo.text != '') {
-        ctx.commit('addTodo', todo)
-
-        // Improvement - sync with mongodb?
+        let todos = await axios.post('http://localhost:3000/todos', todo)
+        ctx.commit('addTodo', todos.data)
+        let todoStorage = JSON.stringify(todos.data);
+        localStorage.setItem('todos', todoStorage);
       }
     },
   },
   getters: {
-    todos(state) {
-      return state.todos;
-    },
     doneTodos(state) {
       return state.todos.filter(todo => todo.done)
     }

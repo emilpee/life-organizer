@@ -18,6 +18,9 @@ export default {
       return this.$store.state.activeSlide;
     }
   },
+  beforeMount() {
+    this.$store.dispatch('getTodolist')
+  },
   methods: {
     handleSwipe(e) {
       this.activeSlide = e;

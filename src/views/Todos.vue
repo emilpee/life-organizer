@@ -26,7 +26,7 @@ export default {
   name: 'home',
   computed: {
     todos() {
-      return this.$store.getters.todos
+      return this.$store.state.todos
     }
   },
   methods: {
