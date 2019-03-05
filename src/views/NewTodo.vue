@@ -1,6 +1,6 @@
 <template>
   <div id="newtodo">
-    <div class="addnew">
+    <div class="addnew" v-touch:swipe.right="swipe">
       <header>
         <h1>Add new task</h1>
         <h3>(If you have nothing else to do)</h3>
@@ -36,6 +36,9 @@ export default {
           this.$store.dispatch('getTodolist')
           this.newTodo = '';
           this.$store.commit('swipe', 0);
+        },
+        swipe() {
+          this.$store.commit('swipe', 0)
         }
     }
 }

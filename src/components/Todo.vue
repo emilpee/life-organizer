@@ -28,16 +28,16 @@ export default {
 
 .todo {
     background: rgb(131, 236, 255);
-    padding: .75rem;
-       display: flex;
+    margin: 1rem;
+    display: flex;
     color: white;
 
     .todoItem {
         background: #222;
+        height: 2.5rem;
         border-radius: 9999em;
         display: flex;
         align-items: center;
-        padding: .5rem;
     }
 
     &.doneTask {
@@ -50,23 +50,22 @@ export default {
     }
 
     aside {
-        height: 1rem;
-        width: 1rem;
         border-radius: 9999rem;
-        padding: .5rem;
         background: rgb(70, 236, 70);
+        padding: .75rem;
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        margin: -.5rem;
 
         & img {
-            width: 1.25rem;
+            width: 1.5rem;
+            height: 1.5rem;
         }
     }
 
     .text {
         flex: 1;
-        padding: .5rem;
         @extend %center;
     }
 }

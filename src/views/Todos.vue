@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" v-touch:swipe.left="swipe">
     <main class="todolist">
       <header>
           <h1>Life Organizer</h1>
@@ -11,15 +11,14 @@
         <todo v-for="(todo, index) in todos" :key="index" :index="index" :todo="todo" />
       </section>
 
-      <footer v-touch:swipe.left="swipe">
-        <a href="#" class="btn">Swipe to add new task</a>
+      <footer>
+        <span class="btn">Swipe to add new task</span>
       </footer>
     </main>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Todo from '@/components/Todo.vue'
 
 export default {
@@ -27,6 +26,11 @@ export default {
   computed: {
     todos() {
       return this.$store.state.todos
+    }
+  },
+  beforeMount() {
+  if(localStorage.getItem('todos')) {
+    this.$store.dispatch('getTasks');
     }
   },
   methods: {
@@ -48,7 +52,7 @@ export default {
   .todolist {
 
     header {
-      padding: 1.5rem;
+      padding: 1rem;
 
       h1 {
         font-size: 2.5rem;
@@ -58,16 +62,10 @@ export default {
         margin: 0;
         padding: .5rem;
       }
-
     }
 
     footer {
       background: rgb(252, 166, 209);
-
-      &:active {
-        background: rgb(221, 108, 164);
-      }
-      
     }
   }
 }

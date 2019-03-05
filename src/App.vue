@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="slider" :class="'slide-' + activeSlide">
-      <todos @swipe="handleSwipe" />
-      <newtodo @swipe="handleSwipe" />
+      <todos />
+      <newtodo />
     </div>
   </div>
 </template>

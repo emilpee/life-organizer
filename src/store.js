@@ -24,6 +24,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    getTasks(data) {
+      let tasks = localStorage.getItem('todos');
+      let parsedTasks = JSON.parse(tasks);
+      data.commit('getTodos', parsedTasks);
+    },
     async getTodolist(data) {
       let todos = await axios.get('http://localhost:3000/todos')
       data.commit('getTodos', todos.data)
@@ -40,6 +45,6 @@ export default new Vuex.Store({
   getters: {
     doneTodos(state) {
       return state.todos.filter(todo => todo.done)
-    }
+    },
   }
 })
