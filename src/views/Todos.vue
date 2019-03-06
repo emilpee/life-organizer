@@ -26,11 +26,11 @@ export default {
   computed: {
     todos() {
       return this.$store.state.todos
-    }
+    },
   },
   beforeMount() {
-  if(localStorage.getItem('todos')) {
-    this.$store.dispatch('getTasks');
+    if(localStorage.getItem('todos')) {
+      this.$store.dispatch('getTasks');
     }
   },
   methods: {

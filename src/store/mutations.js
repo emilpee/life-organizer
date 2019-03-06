@@ -10,5 +10,8 @@ export default {
     },
     getTodos(state, todos) {
         state.todos = todos
+    },
+    removeTodo(state, todo) {
+        state.todos.splice(todo, 1)
     }
 }

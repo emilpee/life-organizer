@@ -7,6 +7,7 @@
     <section class="text">
         {{ todo.text }}
     </section>
+    <button @click="removeTodo(index)">x</button>
     </div>
   </article>
 </template>
@@ -18,7 +19,10 @@ export default {
     methods: {
         completed() {
           this.$store.commit('updateTodo', this.index)
-        }    
+        },
+        removeTodo(index) {
+            this.$store.dispatch('removeTask', index)
+        }
     }
 }
 </script>
@@ -38,6 +42,14 @@ export default {
         border-radius: 9999em;
         display: flex;
         align-items: center;
+
+        & button {
+            background: white;
+            margin-right: .5rem;
+            border-radius: 3px;
+            border: none;
+            color: black;
+        }
     }
 
     &.doneTask {
